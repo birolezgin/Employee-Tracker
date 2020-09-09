@@ -212,25 +212,25 @@ function addEmployee() {
 
 // allows user to remove an employee from database
 function removeEmployee() {
-    connection.query(`SELECT * FROM employee`, (err, role) => {
+    connection.query(`SELECT * FROM role`, (err, role) => {
         if (err) throw err;
-        const roleList = role.map(e => {
+        const roleList = role.map(r => {
             return {
-                name: `${e.first_name} ${e.last_name} ${e.role_id}`,
-                value: e.id
+                name: r.title,
+                value: r.id
             }
-        });
+        })
         inquirer
           .prompt([
             {
               type: "input",
-              name: "first_name,",
-              message: "What is the name of the employee want to remove?",
+              name: "first_name",
+              message: "What is the first name of the employee?",
             },
             {
               type: "input",
-              name: "last_name,",
-              message: "What is the last name of the employee want to remove?",
+              name: "last_name",
+              message: "What the last name of the employee?",
             },
             {
               type: "list",
@@ -239,20 +239,20 @@ function removeEmployee() {
               choices: roleList,
             },
           ])
-          .then((res) => {
-                connection.query(
-                    `DELETE employee(first_name, last_name, role_id) 
-                  VALUES ("${res.first_name}", "${res.last_name}", ${res.role_id})`,
-              (err, res) => {
-                if (err) throw err;
-                searchDB();
-              }
-            );
-            console.log("Employee has been removed!");
-          });
-    })
-}
-
+        .then(function(res){
+            connection.query(
+                `DELETE FROM employee(first_name, last_name, role_id) 
+              VALUES ("${res.first_name}", "${res.last_name}", ${res.role_id})`,
+                (err, res) => {
+                  if (err) throw err;
+                  searchDB();
+                }
+              );
+              console.log("Employee has been removed!");
+            });
+      })
+  }
+  
 
 // grabs all employees (id, first name, last name) and then allows user to select employee to update role
 function updateEmployeeRole() {
