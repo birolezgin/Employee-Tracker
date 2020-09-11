@@ -31,6 +31,7 @@ function searchDB() {
                 "Add Employee",
                 "Update Employee Role",
                 "Remove Employee",
+                "Remove Department",
                 "Exit"
             ]
 
@@ -59,6 +60,9 @@ function searchDB() {
                     break;
                 case "Remove Employee":
                     removeEmployee();
+                    break;
+                case "Remove Department":
+                    removeDepartment();
                     break;
                 default :
                     exitApp();
@@ -242,6 +246,38 @@ function removeEmployee() {
       })
   }
   
+// allows user to remove a department from database
+function removeDepartment() {
+    connection.query(`SELECT * FROM department`, (err, department) => {
+        if (err) throw err;
+        const allDepartments = department.map(d => {
+            return {
+                name: `${d.name}`,
+                value: d.id
+            }
+        });
+        inquirer
+          .prompt([
+            {
+                type: "list",
+                name: "department",
+                message: "Which Department would you like to remove?",
+                choices: allDepartments
+            }
+          ])
+        .then(function(res){
+            connection.query(
+                `DELETE FROM department WHERE id=${res.department}`,
+                (err, res) => {
+                  if (err) throw err;
+                  searchDB();
+                }
+              );
+              console.log("Department has been removed!");
+            });
+  })
+}
+
 
 // grabs all employees (id, first name, last name) and then allows user to select employee to update role
 function updateEmployeeRole() {
