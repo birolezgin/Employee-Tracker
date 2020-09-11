@@ -11,3 +11,6 @@ The app involved building a command-line application that allows the user to:
 . Update employee roles
 . Update employee managers
 . Delete departments, roles, and employees
+
+. View the video link below that shows hot command line application works.
+https://drive.google.com/file/d/1IaCGKY8c1GvhxHgIFk0vNLgfzCTkWbA-/view
