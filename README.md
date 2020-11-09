@@ -19,4 +19,4 @@ https://drive.google.com/file/d/1MAHHvx6aQjxNKCUH7LtJAdbImsL8cYQG/view?usp=shari
 
 
 
-![employee-tracker](https://user-images.githubusercontent.com/60679626/98508626-a5209b80-2214-11eb-850c-fceaf6bc3445.PNG)
+![employee-img](https://user-images.githubusercontent.com/60679626/98591052-8eb22880-2284-11eb-98e1-a2579be38c61.PNG)
