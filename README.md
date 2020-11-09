@@ -13,4 +13,10 @@ The app involved building a command-line application that allows the user to:
 . Delete departments, roles, and employees
 
 . View the video link below that shows how command line application works.
+
 https://drive.google.com/file/d/1MAHHvx6aQjxNKCUH7LtJAdbImsL8cYQG/view?usp=sharing
+
+
+
+
+![employee-tracker](https://user-images.githubusercontent.com/60679626/98508626-a5209b80-2214-11eb-850c-fceaf6bc3445.PNG)
